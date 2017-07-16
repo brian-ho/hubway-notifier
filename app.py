@@ -60,8 +60,8 @@ def job():
 
     return text
 
-schedule.every().saturday.at("23:15").do(job)
-schedule.every().saturday.at("23:30").do(job)
+schedule.every().saturday.at("23:20").do(job)
+schedule.every().saturday.at("23:35").do(job)
 schedule.every().monday.at("6:30").do(job)
 schedule.every().tuesday.at("6:30").do(job)
 schedule.every().wednesday.at("6:30").do(job)
