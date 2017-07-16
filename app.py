@@ -54,7 +54,7 @@ def job():
         else:
             text += u" 🆘 "
 
-        text += station["short"] + " " + str(station["bikes"]) + u" 🚲 (" + str(station["docks"]) + ") |"
+        text += station["short"] + " " + str(station["bikes"]) + " (" + str(station["docks"]) + ") |"
 
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
