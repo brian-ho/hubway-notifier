@@ -6,6 +6,8 @@ import requests
 import math
 from twilio.rest import Client
 
+print "initializing ..."
+
 def distance(lat, lng):
     return 364000 * math.sqrt((lat - 42.380268)**2 + (lng - -71.118363)**2)
 
@@ -61,12 +63,11 @@ def job():
     return text
 
 # When to run?
-schedule.every().sunday.at("23:44").do(job)
-schedule.every().monday.at("6:30").do(job)
-schedule.every().tuesday.at("6:30").do(job)
-schedule.every().wednesday.at("6:30").do(job)
-schedule.every().thursday.at("6:30").do(job)
-schedule.every().friday.at("6:30").do(job)
+schedule.every().monday.at("6:32").do(job)
+schedule.every().tuesday.at("6:32").do(job)
+schedule.every().wednesday.at("6:32").do(job)
+schedule.every().thursday.at("6:32").do(job)
+schedule.every().friday.at("6:32").do(job)
 schedule.every().saturday.at("8:45").do(job)
 schedule.every().sunday.at("8:45").do(job)
 
