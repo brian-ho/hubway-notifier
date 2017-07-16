@@ -9,6 +9,7 @@ from twilio.rest import Client
 def distance(lat, lng):
     return 364000 * math.sqrt((lat - 42.380268)**2 + (lng - -71.118363)**2)
 
+# called at intervals
 def job():
     # Find these values at https://twilio.com/user/account
     account_sid = "AC059cc06e86b53d22b9fabd5266605dc1"
