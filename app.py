@@ -6,7 +6,7 @@ import requests
 import math
 from twilio.rest import Client
 
-print "initializing ..."
+print "Initializing morning notifier ..."
 
 def distance(lat, lng):
     return 364000 * math.sqrt((lat - 42.380268)**2 + (lng - -71.118363)**2)
@@ -54,23 +54,26 @@ def job():
         else:
             text += u" 🆘 "
 
-        text += station["short"] + " " + str(station["bikes"]) + "🚲 (" + str(station["docks"]) + ") |"
+        text += station["short"] + " " + str(station["bikes"]) + u" 🚲 (" + str(station["docks"]) + ") |"
 
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
                                                  body=text)
 
-    return text
+    print "Sent message at " + time.strftime("%H:%M") + "...\n" + text
+    return
 
 # When to run?
-schedule.every().monday.at("6:31").do(job)
-schedule.every().tuesday.at("6:31").do(job)
-schedule.every().wednesday.at("6:31").do(job)
-schedule.every().thursday.at("6:31").do(job)
-schedule.every().friday.at("6:31").do(job)
+schedule.every().monday.at("6:30").do(job)
+schedule.every().tuesday.at("6:30").do(job)
+schedule.every().wednesday.at("6:30").do(job)
+schedule.every().thursday.at("6:30").do(job)
+schedule.every().friday.at("6:30").do(job)
 schedule.every().saturday.at("8:45").do(job)
 schedule.every().sunday.at("8:45").do(job)
 
-while True:
+while int(time.strftime("%H")) <= 10:
     schedule.run_pending()
     time.sleep(1)
+
+print "Shutting down ..."
