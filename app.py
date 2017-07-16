@@ -56,6 +56,9 @@ def job():
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
                                                  body=text)
+
+    return text
+
 schedule.every().saturday.at("23:15").do(job)
 schedule.every().saturday.at("23:30").do(job)
 schedule.every().monday.at("6:30").do(job)
