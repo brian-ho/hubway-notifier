@@ -46,13 +46,13 @@ def job():
 
     for station in stations.values():
         if station["status"] == 1 and station["bikes"] >= 1:
-            text += u"✅ "
+            text += u" ✅ "
         elif station["bikes"] == 0:
-            text += u"✴️ "
+            text += u" ✴️ "
         else:
-            text += u"🆘 "
+            text += u" 🆘 "
 
-        text += station["short"] + " " + str(station["bikes"]) + " | " + str(station["docks"]) + "\n"
+        text += station["short"] + " " + str(station["bikes"]) + "🚲 (" + str(station["docks"]) + ") |"
 
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
@@ -61,8 +61,8 @@ def job():
     return text
 
 # When to run?
-schedule.every().saturday.at("23:20").do(job)
-schedule.every().saturday.at("23:35").do(job)
+schedule.every().saturday.at("23:30").do(job)
+schedule.every().saturday.at("24:00").do(job)
 schedule.every().monday.at("6:30").do(job)
 schedule.every().tuesday.at("6:30").do(job)
 schedule.every().wednesday.at("6:30").do(job)
