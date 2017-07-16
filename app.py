@@ -9,7 +9,7 @@ from twilio.rest import Client
 def distance(lat, lng):
     return 364000 * math.sqrt((lat - 42.380268)**2 + (lng - -71.118363)**2)
 
-def greeting():
+def job():
     # Find these values at https://twilio.com/user/account
     account_sid = "AC059cc06e86b53d22b9fabd5266605dc1"
     auth_token = "0e83a0732e76b12bbd5e5d904435a797"
@@ -56,7 +56,7 @@ def greeting():
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
                                                  body=text)
-schedule.every().saturday.at("23:10").do(job)
+schedule.every().saturday.at("23:15").do(job)
 schedule.every().saturday.at("23:30").do(job)
 schedule.every().monday.at("6:30").do(job)
 schedule.every().tuesday.at("6:30").do(job)
