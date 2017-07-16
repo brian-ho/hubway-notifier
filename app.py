@@ -60,6 +60,7 @@ def job():
 
     return text
 
+# When to run?
 schedule.every().saturday.at("23:20").do(job)
 schedule.every().saturday.at("23:35").do(job)
 schedule.every().monday.at("6:30").do(job)
