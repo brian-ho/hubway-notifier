@@ -56,7 +56,7 @@ def greeting():
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
                                                  body=text)
-
+schedule.every().saturday.at("10:30").do(job)
 schedule.every().monday.at("6:30").do(job)
 schedule.every().tuesday.at("6:30").do(job)
 schedule.every().wednesday.at("6:30").do(job)
