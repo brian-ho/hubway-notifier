@@ -72,7 +72,7 @@ schedule.every().friday.at("6:30").do(job)
 schedule.every().saturday.at("8:45").do(job)
 schedule.every().sunday.at("8:45").do(job)
 
-while int(time.strftime("%H")) <= 10:
+while int(time.strftime("%H")) <= 10 and int(time.strftime("%H")) >= 5:
     schedule.run_pending()
     time.sleep(1)
 
