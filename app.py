@@ -21,6 +21,7 @@ def job():
     stations = {}
 
     station_list = requests.get("https://gbfs.thehubway.com/gbfs/en/station_information.json")
+
     for station in station_list.json()["data"]["stations"]:
         if "SEAS" in station["name"]:
             stations[station["station_id"]] = {"name": station["name"],
@@ -44,23 +45,23 @@ def job():
             stations[station["station_id"]]["bikes"] = station["num_bikes_available"]
             stations[station["station_id"]]["status"] = station["is_renting"]
 
-    text = u"🚲 " + time.strftime("%b %d %Y") + "\n"
+    text = u"🚲 " + time.strftime("%b %d %Y") + "\n "
 
     for station in stations.values():
         if station["status"] == 1 and station["bikes"] >= 1:
-            text += u" ✅ "
+            text += u"✅ "
         elif station["bikes"] == 0:
-            text += u" ✴️ "
+            text += u"✴️ "
         else:
-            text += u" 🆘 "
+            text += u"🆘 "
 
-        text += station["short"] + " " + str(station["bikes"]) + " (" + str(station["docks"]) + ") |"
+        text += station["short"] + " " + str(station["bikes"]) + " (" + str(station["docks"]) + ") | "
 
     message = client.api.account.messages.create(to="+16178172456",
                                                  from_="+16179776976",
                                                  body=text)
 
-    print "Sent message at " + time.strftime("%H:%M") + "...\n" + text
+    print u"Sent message at " + time.strftime("%H:%M").encode('utf-8') + u"...\n" + text.encode('utf-8')
     return
 
 # When to run?
