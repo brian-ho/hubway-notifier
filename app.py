@@ -14,8 +14,8 @@ def distance(lat, lng):
 # called at intervals
 def job():
     # Find these values at https://twilio.com/user/account
-    account_sid = "AC059cc06e86b53d22b9fabd5266605dc1"
-    auth_token = "0e83a0732e76b12bbd5e5d904435a797"
+    account_sid = X
+    auth_token = X
     client = Client(account_sid, auth_token)
 
     stations = {}
