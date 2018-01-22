@@ -57,8 +57,8 @@ def job():
 
         text += station["short"] + " " + str(station["bikes"]) + " (" + str(station["docks"]) + ") | "
 
-    message = client.api.account.messages.create(to="+16178172456",
-                                                 from_="+16179776976",
+    message = client.api.account.messages.create(to="+X",
+                                                 from_="+X",
                                                  body=text)
 
     print u"Sent message at " + time.strftime("%H:%M").encode('utf-8') + u"...\n" + text.encode('utf-8')
